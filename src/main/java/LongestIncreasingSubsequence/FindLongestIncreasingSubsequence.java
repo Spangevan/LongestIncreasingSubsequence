@@ -6,7 +6,7 @@ import java.util.Iterator;
 public class FindLongestIncreasingSubsequence {
 	public static void main(String[] args) {
 
-		int array[] = { 1, 2, 3, 6, 5, 4 };
+		int array[] = { 1, 2, 3, 6, 5, 4, 7, 9, 10, 20, 50, 70, 3, 71, 73, 75 };
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		ArrayList<Integer> longestList = new ArrayList<Integer>();
 		int currentMax;
