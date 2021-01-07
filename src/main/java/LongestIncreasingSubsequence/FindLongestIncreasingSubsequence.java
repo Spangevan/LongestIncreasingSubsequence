@@ -1,30 +1,40 @@
 package LongestIncreasingSubsequence;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class FindLongestIncreasingSubsequence {
+	public static void main(String[] args) {
 
-	static int longestIncreasingSubsequence(int arr[], int n) {
-		int lis[] = new int[n];
-		int i, j, max = 0;
-		
-		
+		int array[] = { 1, 2, 3, 6, 5, 4 };
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> longestList = new ArrayList<Integer>();
+		int currentMax;
+		int highestCount = 0;
+		for (int i = 0; i < array.length; i++) {
+			currentMax = Integer.MIN_VALUE;
+			for (int j = i; j < array.length; j++) {
+				if (array[j] > currentMax) {
+					list.add(array[j]);
+					currentMax = array[j];
+				}
+			}
 
-		
-		for (i = 0; i < n; i++)
-			lis[i] = 1;
+			if (highestCount < list.size()) {
+				highestCount = list.size();
+				longestList = new ArrayList<Integer>(list);
+			}
+			list.clear();
+		}
+		System.out.println();
 
-		
-		for (i = 1; i < n; i++)
-			for (j = 0; j < i; j++)
-				if (arr[i] > arr[j] && lis[i] < lis[j] + 1)
-					lis[i] = lis[j] + 1;
-
-		
-		for (i = 0; i < n; i++)
-			if (max < lis[i])
-				max = lis[i];
-
-		return max;
+		Iterator<Integer> itr = longestList.iterator();
+		System.out.println("The Longest subsequence");
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+		System.out.println();
+		System.out.println("Length of LIS: " + highestCount);
 	}
 
-	
 }
